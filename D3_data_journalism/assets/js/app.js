@@ -57,7 +57,7 @@ let circlesGroup = chartGroup.selectAll("circle")
     .attr("cx", (d) => xScale(d.poverty))
     .attr("cy", d => yScale(d.healthcare))
     .attr("r", "20")
-    .attr("fill", "yellow");
+    .classed("stateCircle" , true)
 
 chartGroup.selectAll(".dodo")
     .data(csvData)
@@ -65,9 +65,8 @@ chartGroup.selectAll(".dodo")
     .append("text")
     .attr("x", (d) => xScale(d.poverty))
     .attr("y", d => yScale(d.healthcare))
-    .attr("dx", "-0.5em")
-    .attr("dy", "0.3em")
-    .text(d => d.abbr);
+    .text(d => d.abbr)
+    .classed("stateText", true);
 
 let toolTip = d3.select('body').append("div")
     .attr("class", "tooltip");
