@@ -85,6 +85,8 @@ chartGroup.append("text")
 }).catch(function(error) {
   console.log(error);
 
+
+
 // let toolTip = d3.select('body').append("div")
 //     .attr("class", "tooltip");
 
