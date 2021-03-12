@@ -31,7 +31,7 @@ csvData.forEach(function(data){
 });
 // Create scaling functions
 let xScale = d3.scaleLinear()
-    .domain([6, d3.max(csvData, d=> d.poverty)])
+    .domain([8, d3.max(csvData, d=> d.poverty)])
     .range([0, width]);
 
 let yScale = d3.scaleLinear()
