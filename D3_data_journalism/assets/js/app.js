@@ -29,5 +29,17 @@ csvData.forEach(function(data){
 
 });
 // Create scaling functions
+let xScale = d3.scaleLinear()
+    .domain([0, d3.max(csvData, d=> d.poverty)])
+    .range([0, width]);
+
+let yScale = d3.scaleLinear()
+.domain([0, d3.max(csvData, d=> d.healthcare)])
+.range([0, height]);
+
+// Create axis functions
+let bottomAxis = d3.axisBottom(xScale);
+let leftAxis = d3.axisLeft(yScale);
 
 });
+
