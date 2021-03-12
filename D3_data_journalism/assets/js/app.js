@@ -49,6 +49,15 @@ chartGroup.append("g")
 chartGroup.append("g")
     .call(leftAxis);
 
+let circlesGroup = chartGroup.selectAll("circle")
+    .data(csvData)
+    .enter()
+    .append("circle")
+    .attr("cx", (d) => xScale(d.poverty))
+    .attr("cy", d => yScale(d.healthcare))
+    .attr("r", "5")
+    .attr("fill", "red");
+
 
 
 });
