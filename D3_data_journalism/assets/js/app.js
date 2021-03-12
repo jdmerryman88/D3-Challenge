@@ -56,7 +56,7 @@ let circlesGroup = chartGroup.selectAll("circle")
     .append("circle")
     .attr("cx", (d) => xScale(d.poverty))
     .attr("cy", d => yScale(d.healthcare))
-    .attr("r", "40")
+    .attr("r", "30")
     .classed("stateCircle" , true)
 
 chartGroup.selectAll(".text")
