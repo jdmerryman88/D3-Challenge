@@ -35,11 +35,21 @@ let xScale = d3.scaleLinear()
 
 let yScale = d3.scaleLinear()
 .domain([0, d3.max(csvData, d=> d.healthcare)])
-.range([0, height]);
+.range([height, 0]);
 
 // Create axis functions
 let bottomAxis = d3.axisBottom(xScale);
 let leftAxis = d3.axisLeft(yScale);
+
+//Add x and y axis to chart
+chartGroup.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(bottomAxis);
+
+chartGroup.append("g")
+    .call(leftAxis);
+
+
 
 });
 
