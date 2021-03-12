@@ -23,5 +23,11 @@ d3.csv("./assets/data/data.csv").then(function(csvData) {
     console.log(csvData);
     console.log([csvData]);
 
+csvData.forEach(function(data){
+    data.poverty = +data.poverty;
+    data.healthcare = +data.healthcare;
+
+});
+// Create scaling functions
 
 });
