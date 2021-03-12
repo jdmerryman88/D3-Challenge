@@ -59,7 +59,7 @@ let circlesGroup = chartGroup.selectAll("circle")
     .attr("r", "20")
     .classed("stateCircle" , true)
 
-chartGroup.selectAll(".dodo")
+chartGroup.selectAll(".text")
     .data(csvData)
     .enter()
     .append("text")
@@ -68,18 +68,37 @@ chartGroup.selectAll(".dodo")
     .text(d => d.abbr)
     .classed("stateText", true);
 
-let toolTip = d3.select('body').append("div")
-    .attr("class", "tooltip");
+// Append axis titles
+chartGroup.append("text")
+  .attr("transform", `translate(${width / 2}, ${height + margin.top + 20})`)
+    .text("Poverty (%)");
 
-circlesGroup.on('mouseover', function(event,d){
-    toolTip.style('display', 'block');
-    toolTip.html(`Test <strong>${d}</strong>`)
-        .style("left", event.pageX + "px")
-        .style("top", event.pageY + 'px');
-})    
-.on('mouseout', function(){
-    toolTip.style('display', 'none');
-})
+chartGroup.append("text")
+  .attr("transform", "rotate(-90)")
+  .attr("y" , 0-margin.left)
+  .attr("x", 0 - (height/2))
+  .attr("dy", "1em")
+  .style("text-anchor", "middle")
+    .text("Healthcare (%)");
+
+
+}).catch(function(error) {
+  console.log(error);
+
+// let toolTip = d3.select('body').append("div")
+//     .attr("class", "tooltip");
+
+// circlesGroup.on('mouseover', function(event,d){
+//     toolTip.style('display', 'block');
+//     toolTip.html(`Test <strong>${d}</strong>`)
+//         .style("left", event.pageX + "px")
+//         .style("top", event.pageY + 'px');
+// })    
+// .on('mouseout', function(){
+//     toolTip.style('display', 'none');
+// })
+
+
 });
 }
 
