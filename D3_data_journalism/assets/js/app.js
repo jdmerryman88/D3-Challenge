@@ -1,5 +1,6 @@
 // @TODO: YOUR CODE HERE!
 // Chart Params
+function makeResponsive(){
 let svgWidth = 960;
 let svgHeight = 500;
 
@@ -55,10 +56,36 @@ let circlesGroup = chartGroup.selectAll("circle")
     .append("circle")
     .attr("cx", (d) => xScale(d.poverty))
     .attr("cy", d => yScale(d.healthcare))
-    .attr("r", "5")
-    .attr("fill", "red");
+    .attr("r", "20")
+    .attr("fill", "yellow");
 
+chartGroup.selectAll(".dodo")
+    .data(csvData)
+    .enter()
+    .append("text")
+    .attr("x", (d) => xScale(d.poverty))
+    .attr("y", d => yScale(d.healthcare))
+    .attr("dx", "-0.5em")
+    .attr("dy", "0.3em")
+    .text(d => d.abbr);
 
+let toolTip = d3.select('body').append("div")
+    .attr("class", "tooltip");
 
+circlesGroup.on('mouseover', function(event,d){
+    toolTip.style('display', 'block');
+    toolTip.html(`Test <strong>${d}</strong>`)
+        .style("left", event.pageX + "px")
+        .style("top", event.pageY + 'px');
+})    
+.on('mouseout', function(){
+    toolTip.style('display', 'none');
+})
 });
+}
+
+makeResponsive();
+
+d3.select(window).on("resize", makeResponsive);
+
 
