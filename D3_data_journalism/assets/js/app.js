@@ -17,10 +17,11 @@ let svg = d3
 let chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+
 // Import data from an external CSV file
-d3.csv("data.csv").then(function(smurfData) {
-    console.log(smurfData);
-    console.log([smurfData]);
+d3.csv("./assets/data/data.csv").then(function(csvData) {
+    console.log(csvData);
+    console.log([csvData]);
 
 
 });
